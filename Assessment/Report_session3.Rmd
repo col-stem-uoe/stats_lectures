@@ -1,0 +1,47 @@
+---
+title: "Assessed Report- session 3"
+author: "B000001"
+date: "Write date here"
+output: bookdown::pdf_document2
+toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+## 
+
+```{r, include=FALSE}
+# Your code goes here
+```
+
+## 5. Research Question 4 (RQ4)
+
+State RQ4 here in words.
+
+```{r rq4}
+
+```
+
+Write up the results and interpretation for RQ4 here...
+
+## 6. Research Question 5 (RQ5)
+
+State RQ5 here in words.
+
+```{r rq5}
+
+```
+
+Write up the results and interpretation for RQ5 here...
+
+# Discussion
+
+Add your text here...
+
+# Appendix A: R code
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+
+```

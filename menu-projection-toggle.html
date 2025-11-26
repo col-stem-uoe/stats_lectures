@@ -1,0 +1,55 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const deck = document.querySelector(".reveal");
+  if (!deck) return;
+
+  function addProjectionToggleToMenu() {
+    const menu = document.querySelector(".slide-menu");
+    if (!menu || menu.dataset.projectionToggleAdded === "true") return;
+
+    // Try to find the primary list inside the menu
+    const list =
+      menu.querySelector(".slide-menu-items") ||
+      menu.querySelector("ul") ||
+      menu;
+
+    // Build a menu item with a checkbox
+    const li = document.createElement("li");
+    li.className = "menu-item projection-toggle-item";
+    li.innerHTML = `
+      <label class="menu-toggle" style="display:flex;align-items:center;gap:.6em;cursor:pointer;">
+        <input type="checkbox" id="projection-switch" style="transform:scale(1.1);" />
+        <span>Projection mode</span>
+      </label>
+    `;
+
+    // Insert near the top
+    if (list.firstChild) {
+      list.insertBefore(li, list.firstChild);
+    } else {
+      list.appendChild(li);
+    }
+
+    // Wire up the toggle
+    const cb = li.querySelector("#projection-switch");
+    const applyState = () => {
+      cb.checked = deck.classList.contains("projection-mode");
+    };
+    applyState();
+
+    cb.addEventListener("change", () => {
+      deck.classList.toggle("projection-mode", cb.checked);
+    });
+
+    // Mark as added so we don't duplicate it
+    menu.dataset.projectionToggleAdded = "true";
+  }
+
+  // Add immediately if menu is already in DOM
+  addProjectionToggleToMenu();
+
+  // Observe for the menu being added later (plugin loads it dynamically)
+  const obs = new MutationObserver(() => addProjectionToggleToMenu());
+  obs.observe(document.body, { childList: true, subtree: true });
+});
+</script>

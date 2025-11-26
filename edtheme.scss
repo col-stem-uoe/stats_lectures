@@ -1,0 +1,1027 @@
+/*
+  Small SCSS theme that provides University of Edinburgh branding
+  to Quarto presentations. Released by Josh Fogg under a Creative
+  Commons Zero (CC0) license.
+*/
+
+/*-- scss:defaults --*/
+
+/* UoE's sans-serif brand font */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* UoE does not have a monospace brand font so using Inconsolata. */
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+// $font-family-sans-serif: "Source Sans 3";  // BUG setting not working
+$font-family-monospace: 'Inconsolata', monospace;
+
+// colors
+// $body-bg: #FFFBEB !default;
+$body-color: #041E42 !default;
+$selection-bg: #D50032 !default;
+
+/* UoE link color for use with 'university-blue' */
+$link-color: #19b5fe !default;
+
+
+/*-- scss:rules --*/
+
+// make sure figure captions are always centred
+p.caption, figcaption {
+  margin: auto;
+  text-align: center;
+}
+
+
+/* --------------------------------------------- */
+/* Slides styles - colours*/
+/* --------------------------------------------- */
+
+
+/* Very light, low-glare blue-grey */
+:root {
+  --r-background-color: #f7f9fc;  /* change this to taste */
+  --r-main-color: #041E42;         /* your navy text */
+}
+
+
+/* --------------------------------------------- */
+/* Navigation Menu (UoE branding, top-left) */
+/* --------------------------------------------- */
+
+.reveal .slide-menu-button {
+  position: fixed !important;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+  background: transparent !important;   /* minimalist look */
+  box-shadow: none !important;
+  border-radius: 6px;
+  padding: 6px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+/* Subtle hover effect using tint instead of opacity fade */
+.reveal .slide-menu-button:hover {
+  background: rgba(4, 30, 66, 0.08) !important; /* light UoE navy tint */
+  transform: scale(1.05);
+}
+
+/* Font Awesome hamburger icon */
+.reveal .slide-menu-button .fa-bars::before {
+  filter: grayscale(100%) !important;     /* grayscale filter */
+}
+
+
+
+
+/* ------------------------------------ */
+/* ---------- Projection Mode ---------- */
+/* ------------------------------------ */
+.reveal {
+  background: #f7f9fc;
+  color: #041E42;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.reveal table {
+  border-top: 2px solid #041E42;
+  border-bottom: 2px solid #041E42;
+}
+
+/* Projection mode (for bright rooms) */
+.reveal.projection-mode {
+  background: #e6ebf2;
+  color: #031735;
+}
+
+.reveal.projection-mode table {
+  border-top: 2px solid #031735;
+  border-bottom: 2px solid #031735;
+}
+
+.reveal.projection-mode .example-box,
+.reveal.projection-mode .note,
+.reveal.projection-mode .small-note {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+
+/* Projection mode surfaces */
+.reveal { background: #f7f9fc; color: #041E42; transition: background 0.3s ease, color 0.3s ease; }
+.reveal table { border-top: 2px solid #041E42; border-bottom: 2px solid #041E42; }
+.reveal.projection-mode { background: #e6ebf2; color: #031735; }
+.reveal.projection-mode table { border-top: 2px solid #031735; border-bottom: 2px solid #031735; }
+.reveal.projection-mode .example-box,
+.reveal.projection-mode .note,
+.reveal.projection-mode .small-note { background: rgba(255,255,255,0.92); }
+
+
+/* Style the projection toggle inside the menu */
+.reveal .slide-menu .projection-toggle-item input[type="checkbox"] {
+  accent-color: #041E42;
+}
+
+
+
+
+/* --------------------------------------------- */
+/* Slides styles - spacing text */
+/* --------------------------------------------- */
+
+
+
+/* Increase spacing below headings in slides */
+.reveal h1, 
+.reveal h2 {
+  margin-bottom: 1em; /* increase to 1.5em or 2em for more space */
+}
+
+.reveal table {
+  margin-top: 1.5rem; /* adjust as needed */
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+th {
+  background-color: #e6edf4; /* light blue-grey */
+  color: #041E42;
+  padding: 8px;
+}
+
+td {
+  background-color: #f8f9fb; /* pale grey */
+  padding: 8px;
+}
+
+th, td {
+  border: 1px solid #d0d6df;
+}
+
+/* ----- Tables: fit within slide, wrap nicely, readable ----- */
+
+.reveal .quarto-table-container {
+  max-height: 60vh;        /* keep inside the viewport; scroll if too tall */
+  overflow: auto;
+  margin-top: 0.8rem;      /* space above tables */
+}
+
+.reveal table {
+  width: 100%;
+  table-layout: fixed;     /* enables wrapping instead of overflow */
+  border-collapse: collapse;
+  font-size: 0.95rem;      /* nudge down overall table font */
+}
+
+.reveal th, .reveal td {
+  word-wrap: break-word;
+  padding: 0.5rem 0.6rem;
+}
+
+/* Optional: header tint like your examples */
+.reveal th {
+  background: #e6edf4;
+  color: #041E42;
+  border: 1px solid #d0d6df;
+}
+.reveal td {
+  background: #f8f9fb;
+  border: 1px solid #d0d6df;
+}
+
+/* Universal image styling for revealjs slides */
+.reveal section img {
+  display: block;
+  margin: 1rem auto;        /* centre + add breathing space */
+  max-width: 95%;           /* fits nicely on most slides */
+  max-height: 70vh;         /* prevents overflow vertically */
+  height: auto;
+  width: auto;
+  object-fit: contain;      /* keeps proportions, avoids stretching */
+}
+
+
+
+/* --------------------------------------------- */
+/* Table readability adjustments                 */
+/* --------------------------------------------- */
+
+.reveal table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 1rem; /* increased from 0.95rem for clarity */
+  line-height: 1.4;
+}
+
+.reveal th, .reveal td {
+  word-wrap: break-word;
+  padding: 0.6rem 0.8rem;
+}
+
+/* Optional: slightly darker text for contrast */
+.reveal th, .reveal td {
+  color: #041E42;
+}
+
+/* Large teaching tables */
+.table-large { font-size: 1rem; }
+
+/* Compact results tables */
+.table-small { font-size: 0.85rem; }
+
+/* --------------------------------------------- */
+/* Accessible table header and text improvements */
+/* --------------------------------------------- */
+
+.reveal table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 1rem;          /* slightly larger for teaching readability */
+  line-height: 1.4;
+  margin-top: 1rem;
+}
+
+/* Header cells: darker blue, subtle background for clarity */
+.reveal th {
+  background-color: #dbe5f1; /* light blue tint */
+  color: #041E42;           /* UoE dark blue */
+  font-weight: 700;         /* bold for distinction */
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d0d6df;
+}
+
+/* Data cells: light background with consistent spacing */
+.reveal td {
+  background-color: #f8f9fb;
+  color: #041E42;
+  font-weight: 400;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d0d6df;
+}
+
+/* Optional: large-table class for teaching examples */
+.table-large {
+  font-size: 1rem;
+}
+
+/* Optional: small-table class for results or compact data */
+.table-small {
+  font-size: 0.85rem;
+}
+
+/* Autoscale table container defines the space we fit into */
+.autoscale-table {
+  display: block;
+  width: 100%;
+  max-height: 60vh;   /* room on the slide; adjust if you want more/less */
+  margin-top: 0.8rem;
+  overflow: hidden;   /* no internal scroll; we'll fit the text instead */
+}
+
+/* Start size; JS will adjust up/down between min/max */
+.autoscale-table table {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Tighter slides for dense content */
+.reveal section.tight h2 {
+  margin-bottom: 0.45em;          /* was ~1.2em */
+}
+
+/* Reduce default top/bottom spacing on tight slides */
+.reveal section.tight p,
+.reveal section.tight ul,
+.reveal section.tight ol {
+  margin-top: 0.15rem;
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
+}
+
+/* Extra-compact bullet lists when needed */
+.reveal section .compact > ul,
+.reveal section .compact > ol {
+  margin: 0.2rem 0 0.4rem 0;
+}
+.reveal section .compact li {
+  margin: 0.15rem 0;              /* tighter item gap */
+  font-size: 0.95em;              /* a touch smaller */
+}
+
+/* Table sits closer to the text on tight slides */
+.reveal section.tight .quarto-table-container,
+.reveal section.tight .autoscale-table {
+  margin-top: 0.4rem;              /* was 0.8–1.5rem */
+  max-height: 55vh;                /* give the table more room */
+}
+
+/* Slightly smaller table font just for tight slides */
+.reveal section.tight table {
+  font-size: 0.95rem;
+}
+
+/* Use this on content-heavy slides */
+.reveal section.tight h2{
+  /* shrink title a bit and reduce gap below */
+  font-size: clamp(1.8rem, 5.2vw, 2.6rem);
+  margin-bottom: 0.45em;
+}
+
+/* tighter lists on tight slides */
+.reveal section.tight ul,
+.reveal section.tight ol{
+  margin: 0.25rem 0 0.6rem 0;
+  line-height: 1.35;
+}
+.reveal section.tight li{ margin: 0.18rem 0; }
+
+/* columns gap a touch smaller so text wraps sooner */
+.reveal .columns{ gap: 1.2rem; }
+
+/* give the table more room on tight slides */
+.reveal section.tight .autoscale-table,
+.reveal section.tight .quarto-table-container{
+  margin-top: 0.5rem;
+  max-height: 50vh;          /* was 55–60vh */
+}
+
+/* make blockquote notes smaller and less tall */
+.reveal blockquote.small-note{
+  font-size: 0.9rem;
+  line-height: 1.35;
+  margin: 0.6rem 0 0.2rem 0;
+  padding: 0.6rem 0.9rem;
+  border-left: 4px solid #3b82f6;
+  background: rgba(219, 229, 241, 0.35);
+  color: #041E42;
+}
+
+/* Make .tight work whether class is on the section or the heading */
+.reveal section.tight h1,
+.reveal section.tight h2,
+.reveal section.tight h3,
+.reveal h1.tight,
+.reveal h2.tight,
+.reveal h3.tight {
+  margin-bottom: 0.45em !important;
+  font-size: clamp(1.9rem, 5vw, 2.6rem) !important;
+}
+
+/* Tighter lists on tight slides */
+.reveal section.tight ul,
+.reveal section.tight ol {
+  margin: 0.2rem 0 0.5rem 0 !important;
+  line-height: 1.35;
+}
+.reveal section.tight li { margin: 0.18rem 0 !important; }
+
+/* Columns + table spacing on tight slides */
+.reveal section.tight .columns { gap: 1.2rem !important; align-items: flex-start; }
+
+.reveal section.tight .autoscale-table,
+.reveal section.tight .quarto-table-container {
+  margin-top: 0.4rem !important;
+  max-height: 58vh !important;   /* give the table more room */
+}
+
+/* Ensure Source Sans is used everywhere (text, headings, tables) */
+.reveal, 
+.reveal section, 
+.reveal p, 
+.reveal li, 
+.reveal table, 
+.reveal th, 
+.reveal td, 
+.reveal h1, 
+.reveal h2, 
+.reveal h3, 
+.reveal h4, 
+.reveal blockquote {
+  font-family: 'Source Sans 3', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Tighter layout – spacing only */
+.reveal section.tight h2 { margin-bottom: 0.45em; }
+.reveal section.tight ul,
+.reveal section.tight ol { margin: 0.25rem 0 0.6rem 0; line-height: 1.35; }
+.reveal section.tight li { margin: 0.18rem 0; }
+
+/* Give table a bit more vertical room on tight slides */
+.reveal section.tight .autoscale-table,
+.reveal section.tight .quarto-table-container { 
+  margin-top: 0.5rem; 
+  max-height: 56vh; 
+}
+
+/* Optional: columns breathe but align to top */
+.reveal .columns { gap: 1.4rem; align-items: flex-start; }
+
+.small-note { font-size: 1rem; line-height: 1.35; opacity: .95; }
+
+.small-note {
+  font-size: 1.1rem;
+  line-height: 1.35;
+  opacity: 0.95;
+  padding: 0.5rem 0.8rem;                 /* tidy spacing */
+  border-radius: 4px;                     /* optional soft corners */
+}
+
+.example-box {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  opacity: 0.98;
+  border-left: 4px solid #0b5a2a;              /* dark accessible green */
+  background: rgba(11, 90, 42, 0.08);          /* subtle mint tint */
+  color: #041E42;                              /* your UoE navy text */
+  padding: 0.6rem 0.9rem;
+  border-radius: 4px;
+}
+
+.note {
+  font-size: 1rem;
+  line-height: 1.35;
+  opacity: 0.95;
+  border-left: 3px solid #3b82f6;         /* optional subtle blue bar */
+  padding: 0.5rem 0.8rem;                 /* tidy spacing */
+  background: rgba(219, 229, 241, 0.25);  /* light translucent tint */
+  border-radius: 4px;                     /* optional soft corners */
+  margin-bottom: 1rem;
+}
+
+/* --------------------------------------------- */
+/* Table borders (top + bottom) for accessibility */
+/* --------------------------------------------- */
+
+.reveal table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  font-size: 1rem;
+  line-height: 1.4;
+  border-top: 2px solid #041E42;     /* dark navy top border */
+  border-bottom: 2px solid #041E42;  /* dark navy bottom border */
+  border-left: none;                 /* keep sides clean */
+  border-right: none;
+}
+
+/* Optional: subtle border colour inside cells */
+.reveal th, .reveal td {
+  border: 1px solid #c5ccd8;         /* slightly lighter than navy */
+}
+
+/* Optional: stronger header contrast for accessibility */
+.reveal th {
+  background-color: #dbe5f1;         /* light blue header */
+  color: #041E42;
+  font-weight: 700;
+}
+
+/* Optional: keep row background subtle but distinct */
+.reveal td {
+  background-color: #f9fafb;
+}
+
+.reveal section img {
+  background: #f7f9fc;   /* same as slide background */
+  border: 1px solid #d0d6df;
+}
+
+/* =========================
+   1) Navigation menu (hamburger) — GREY
+   ========================= */
+/* Works whether the icon is FA or SVG */
+.reveal .slide-menu-button,
+.reveal a.slide-menu-button {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.reveal .slide-menu-button .fa-bars::before,
+.reveal .slide-menu-button i,
+.reveal .slide-menu-button .fa,
+.reveal .slide-menu-button svg,
+.reveal .slide-menu-button svg *,
+.reveal .slide-menu-button * {
+  color: #6B7280 !important;   /* neutral grey */
+  fill:  #6B7280 !important;
+  stroke:#6B7280 !important;
+  filter: none !important;
+}
+
+.reveal .slide-menu-button:hover {
+  background: rgba(0,0,0,0.06) !important; /* subtle grey hover */
+}
+
+
+/* =========================
+   Slide number — bottom-right, navy
+   ========================= */
+.reveal .slide-number {
+  position: fixed !important;
+  bottom: 25px !important;    /* now sits near the footer */
+  right: 16px !important;
+  top: auto !important;
+  left: auto !important;
+
+  color: #041E42 !important;      /* UoE navy */
+  background: transparent !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  font-weight: 600;
+  z-index: 1100 !important;
+}
+
+
+/* ========================================================= */
+/* FORCE GREY HAMBURGER + LEFT FOOTER + ORIGINAL SLIDE NUMBER */
+/* ========================================================= */
+
+/* 1) GREY HAMBURGER ICON  */
+.reveal a.slide-menu-button,
+.reveal .slide-menu-button,
+.reveal .slide-menu-button *,
+.reveal .slide-menu-button .fa,
+.reveal .slide-menu-button .fa-bars::before,
+.reveal .slide-menu-button svg,
+.reveal .slide-menu-button svg *,
+.reveal .slide-menu-button i {
+  color: #6B7280 !important;   /* grey */
+  fill:  #6B7280 !important;
+  stroke:#6B7280 !important;
+  filter:none !important;
+}
+.reveal .slide-menu-button:hover {
+  background: rgba(0,0,0,0.05) !important;
+  transform: scale(1.05);
+}
+
+
+/* Force hamburger (menu button) to grey, regardless of how it's rendered */
+.reveal .slide-menu-button,
+.reveal .slide-menu-button a,
+.reveal .slide-menu-button a:link,
+.reveal .slide-menu-button a:visited {
+  color: #6b7280 !important;          /* grey */
+}
+
+.reveal .slide-menu-button .fa-bars,
+.reveal .slide-menu-button .fa-bars::before {
+  color: #6b7280 !important;
+  filter: none !important;            /* ignore any grayscale tricks */
+}
+
+/* If the plugin renders an inline SVG */
+.reveal .slide-menu-button svg,
+.reveal .slide-menu-button svg path {
+  fill: #6b7280 !important;
+  stroke: #6b7280 !important;
+}
+
+/* Keep hover/focus grey (don’t revert to link blue) */
+.reveal .slide-menu-button:hover,
+.reveal .slide-menu-button a:hover,
+.reveal .slide-menu-button a:focus {
+  color: #4b5563 !important;          /* slightly darker grey on hover */
+  background: transparent !important; /* optional: remove tint */
+}
+
+/* Optional: also neutralize the global link color just for the menu button */
+.reveal .slide-menu-button { --r-link-color: #6b7280; }
+
+/* --- Force the menu (hamburger) icon to grey in all cases --- */
+.reveal .slide-menu-button {
+  /* if the plugin styles the <a> via link color, neutralize it */
+  --r-link-color: #6b7280 !important;
+  color: #6b7280 !important;          /* when icon inherits from the button */
+  background: transparent !important; /* keep it clean */
+}
+
+/* If it’s a Font Awesome icon */
+.reveal .slide-menu-button .fa,
+.reveal .slide-menu-button .fa::before,
+.reveal .slide-menu-button .fa-bars,
+.reveal .slide-menu-button .fa-bars::before {
+  color: #6b7280 !important;
+  filter: none !important;
+}
+
+/* If it’s an inline SVG */
+.reveal .slide-menu-button svg,
+.reveal .slide-menu-button svg * {
+  fill: #6b7280 !important;
+  stroke: #6b7280 !important;
+}
+
+/* Don’t flash back to blue on hover/focus */
+.reveal .slide-menu-button:hover,
+.reveal .slide-menu-button:focus,
+.reveal .slide-menu-button a:hover,
+.reveal .slide-menu-button a:focus {
+  color: #4b5563 !important;
+  background: transparent !important;
+}
+
+/* Hide any built-in icon */
+.reveal .slide-menu-button i,
+.reveal .slide-menu-button svg { display: none !important; }
+
+/* Draw a grey hamburger ourselves */
+.reveal .slide-menu-button::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #6b7280;
+  box-shadow: 0 6px 0 #6b7280, 0 -6px 0 #6b7280;
+  border-radius: 1px;
+}
+
+
+
+/* Full-width white footer with left-aligned text; hidden on title via state */
+.reveal .footer {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-start;   /* left-align items horizontally */
+  align-items: center;           /* vertically centre items */
+  text-align: left;              /* explicitly left-align text */
+  background: #ffffff !important;
+  color: #041E42 !important;
+  font-size: 0.95em;
+  font-weight: 600;
+  padding: 0.6em 1.2em;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  z-index: 1000;
+}
+
+
+
+/* Keep slide content above the fixed footer */
+.reveal.has-footer .slides {
+  margin-bottom: 2.6em !important;
+}
+
+/* Hide footer when the title slide is active (set via YAML state) */
+html.no-footer .reveal .footer,
+body.no-footer .reveal .footer {
+  display: none !important;
+}
+
+/* When the title slide is active, Reveal sets `show-logo` on <html> */
+html.show-logo .reveal .slide-logo,
+body.show-logo .reveal .slide-logo {
+  display: block !important;
+  position: fixed;          /* <- fixed keeps it anchored to the corner */
+  right: 1em;
+  bottom: 0.5em;              /* smaller value brings it closer to the edge */
+  z-index: 1000;            /* ensure it stays above other elements */
+
+  max-width: none !important;
+  max-height: none !important;
+  width: 200px !important;  /* adjust size as desired */
+  height: auto !important;
+}
+
+html.show-logo .reveal .slide-logo img {
+  width: 200px !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+}
+
+/* ============================= */
+/* FINAL FOOTER OVERRIDES        */
+/* ============================= */
+
+/* White full-width footer bar, left-aligned text */
+.reveal .footer {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex !important;
+  justify-content: flex-start !important;   /* horizontal alignment */
+  align-items: center !important;           /* vertical centring */
+  text-align: left !important;              /* override Reveal default */
+  background: #ffffff !important;           /* white background */
+  color: #041E42 !important;                /* navy text */
+  font-size: 0.95em;
+  font-weight: 600;
+  padding: 0.6em 1.2em;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+}
+
+/* Inner wrapper — ensures text hugs the left edge */
+.reveal .footer .custom-footer {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+/* Give slides breathing room so content doesn’t overlap footer */
+.reveal.has-footer .slides {
+  margin-bottom: 2.6em !important;
+}
+
+/* Hide footer on title slide (using 'no-footer' state) */
+html.no-footer .reveal .footer,
+body.no-footer .reveal .footer {
+  display: none !important;
+}
+
+/* Apply to the slide <section> that has {.fit-slide} */
+.reveal section.fit-slide {
+  font-size: 0.85em;      /* shrink body text on this slide only */
+  line-height: 1.2;
+}
+
+/* Headings inside that slide */
+.reveal section.fit-slide h1,
+.reveal section.fit-slide h2,
+.reveal section.fit-slide h3 {
+  font-size: 1em;
+  margin-bottom: 0.3em;
+}
+
+/* Tighter bullets inside that slide */
+.reveal section.fit-slide ul { margin: .25em 0 .25em 1.1em; }
+.reveal section.fit-slide li { margin: .15em 0; }
+
+/* (Optional) make only the left column smaller on this slide */
+.reveal section.fit-slide .columns > .column.left-narrow {
+  font-size: 0.7em;
+  line-height: 1.25;
+}
+
+
+.scrollable {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+/* Apply to any slide you tag with {.fit-slide} */
+.fit-slide { font-size: 0.9em; line-height: 1.25; }
+
+.fit-slide h2 {               /* your slide titles */
+  font-size: 2.2rem;          /* smaller than the theme default */
+  margin: 0 0 0.4em 0;
+}
+
+.fit-slide ul li {            /* denser bullet lists */
+  margin: 0.15em 0;
+}
+
+.fit-slide blockquote {       /* slimmer quotes */
+  margin: 0.2em 0 0.6em;
+  padding: 0.2em 0.8em;
+  border-left-width: 6px;     /* thinner bar */
+  font-size: 1.05em;          /* keep readable but not huge */
+}
+
+.bigcode {
+  font-size: 1.5em;     /* increase or decrease as needed */
+  line-height: 1.6
+}
+  
+/*Minimal CSS (add to `edtheme.scss` or `slides.css`)*/
+
+/* keep the table compact and crisp on a slide */
+.table-mini { max-height: 60vh; overflow: auto; }
+
+/* prevent ugly wrapping of headers/cells in the mini table */
+.table-mini .gt_col_heading,
+.table-mini .gt_row { white-space: nowrap; }
+
+/* Scrollable wrapper for GT tables */
+.table-mini {
+  display: block;
+  max-height: 60vh;    /* vertical limit */
+  overflow-x: auto;     /* horizontal scroll */
+  overflow-y: auto;     /* vertical scroll if needed */
+  margin: 0 auto;
+  padding: 0.5em;
+  border-radius: 6px;
+}
+
+/* keep cell content on one line to allow scrolling */
+.table-mini table {
+  white-space: nowrap;
+  width: max-content;   /* ensures scrolling rather than wrapping */
+  border-collapse: collapse;
+}
+
+/* clean, thin borders */
+.table-mini td, .table-mini th {
+  border-color: #d9e1ee;
+}
+
+
+.reveal .small {
+  font-size: 0.9em !important;
+}
+
+.reveal .smaller {
+  font-size: 0.8em !important;
+}
+
+.reveal .tiny {
+  font-size: 0.7em !important;
+}
+
+
+/* Widen the space between columns on slides you tag with .wide-gap */
+.reveal .slides section .columns.wide-gap {
+  gap: 3em !important;          /* try 2em–4em to taste */
+}
+
+/* Add breathing room inside each column only when parent has .wide-gap */
+.reveal .slides section .columns.wide-gap > .column:first-child {
+  padding-right: 2.5em;
+}
+.reveal .slides section .columns.wide-gap > .column:last-child {
+  padding-left: 2.5em;
+}
+
+
+.scroll-table {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Make columns robust on slides */
+.reveal .columns.fixer { gap: 5em; }        /* wider gap if you want */
+.reveal .columns.fixer > .column { min-width: 0; }  /* allow shrink instead of wrapping */
+/* Keep gt tables inside their column */
+.reveal .columns .gt_table { max-width: 100%; }
+.reveal .columns .table-mini { overflow-x: auto; }
+
+/* Make one column's text more compact (use on the left column only) */
+.reveal .columns .column.left-narrow {
+  font-size: 0.7em;     /* shrink body text */
+  line-height: 1.25;     /* tighter lines */
+}
+
+.reveal .columns .column.left-narrow ul { 
+  margin: .25em 0 .25em 1.1em;  /* tighter list block */
+}
+
+.reveal .columns .column.left-narrow li { 
+  margin: .12em 0;              /* tighter between bullets */
+}
+
+/* If you use an inner list for variable definitions */
+.reveal .columns .column.left-narrow .tiny-bullets {
+  font-size: 0.5.5em; 
+  line-height: 1.2;
+}
+
+/* Keep code-styled variable names from looking oversized */
+.reveal .columns .column.left-narrow code {
+  font-size: 0.9em;
+}
+
+/* Columns behave nicely (no forced wrap) */
+.reveal .columns > .column { min-width: 0; }
+
+/* Use on the left column when content can be tall */
+.reveal section.fit-slide .column.left-pane {
+  font-size: 0.7em;        /* shrink only this column */
+  line-height: 1.22;
+}
+
+/* The inner scroller prevents overflow in Present mode */
+.reveal section.fit-slide .column.left-pane .scroll-y {
+  /* subtract some space for the slide title / footer */
+  max-height: calc(100vh - 7.5rem);
+  overflow-y: auto;
+  padding-right: .5rem;     /* room for scrollbar */
+}
+
+/* Tighter list spacing so it all fits */
+.reveal section.fit-slide .column.left-pane ul { 
+  margin: .25em 0 .25em 1.05em;
+}
+.reveal section.fit-slide .column.left-pane li { 
+  margin: .12em 0;
+}
+
+/* Long words won’t push width */
+.reveal section.fit-slide .column.left-pane { 
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Keep main (top-level) bullets as they are */
+.reveal ul { list-style-type: disc; }
+
+/* Change only the second-level bullets (which default to squares) */
+.reveal ul ul {
+  list-style-type: "▹ ";   /* or any symbol you like */
+}
+
+/* Or use ::marker for finer control */
+.reveal ul ul li::marker {
+  content: "▹ ";            /* triangle bullet instead of square */
+  color: #334E73;           /* matches your text_muted colour */
+  font-weight: bold;
+  font-size: 0.9em;         /* slightly smaller than main bullet */
+}
+
+/* Centre any block with {.text-center} on revealjs slides */
+.reveal .text-center {
+  text-align: center !important;
+}
+
+.reveal .text-center.formula {
+  text-align: center !important;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+/* Narrow tables used in worked examples */
+.reveal .narrow-table table {
+  width: auto !important;      /* stop stretching to 100% */
+  max-width: 8rem;             /* make it physically narrow */
+  margin-left: 0;              /* or auto if you want it centred */
+  margin-right: 0;
+}
+
+.reveal .narrow-table th,
+.reveal .narrow-table td {
+  padding: 0.25rem 0.6rem;     /* slightly tighter padding */
+  font-size: 0.9em;
+}
+
+/* ========================================= */
+/* Global compact layout so slides fit better */
+/* ========================================= */
+
+/* Slightly smaller overall text on slides */
+.reveal .slides {
+  font-size: 0.9em;     /* ~90% of default */
+}
+
+/* Headings: smaller + less vertical space */
+.reveal h1 {
+  font-size: 2.2rem;
+  margin: 0 0 0.5em 0;
+}
+
+.reveal h2 {
+  font-size: 1.8rem;
+  margin: 0 0 0.4em 0;
+}
+
+/* Paragraphs and lists: tighter spacing */
+.reveal p,
+.reveal ul,
+.reveal ol {
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+/* Bullet lists a bit denser */
+.reveal li {
+  margin: 0.18rem 0;
+}
+
+/* Code and tables: smaller by default */
+.reveal pre code {
+  font-size: 0.75em;
+  line-height: 1.25;
+  white-space: pre-wrap;   /* wrap instead of running off slide */
+}
+
+.reveal table {
+  font-size: 0.8em;
+}
+
+/* Columns: reduce gap so things wrap sooner */
+.reveal .columns {
+  gap: 1.2rem;
+}
+
+/* Images: don’t exceed the viewport */
+.reveal section img {
+  max-height: 65vh;
+  max-width: 95%;
+  object-fit: contain;
+}

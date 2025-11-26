@@ -1,0 +1,40 @@
+<script>
+(function () {
+  function fitTable(container) {
+    const table = container.querySelector('table');
+    if (!table) return;
+
+    const min = 12;  // px
+    const max = 20;  // px
+    let lo = min, hi = max, best = min;
+
+    table.style.fontSize = min + 'px';
+
+    for (let i = 0; i < 12; i++) {
+      const mid = Math.floor((lo + hi) / 2);
+      table.style.fontSize = mid + 'px';
+
+      const fitsWidth  = table.scrollWidth  <= container.clientWidth;
+      const fitsHeight = table.scrollHeight <= container.clientHeight;
+
+      if (fitsWidth && fitsHeight) {
+        best = mid; lo = mid + 1;
+      } else {
+        hi = mid - 1;
+      }
+    }
+    table.style.fontSize = best + 'px';
+  }
+
+  function fitAll() {
+    document.querySelectorAll('.autoscale-table').forEach(fitTable);
+  }
+
+  if (window.Reveal) {
+    Reveal.on('ready', fitAll);
+    Reveal.on('slidechanged', fitAll);
+  }
+  window.addEventListener('resize', fitAll);
+  document.addEventListener('DOMContentLoaded', fitAll);
+})();
+</script>

@@ -1,0 +1,23 @@
+project:
+  output-dir: docs   # this is where the HTML will go
+
+format:
+  revealjs:
+    smaller: true
+    theme: [default, edtheme.scss]
+    slide-number: true
+    progress: false
+    fig-format: png
+    title-slide-attributes:
+      data-background-color: "#041E42"
+      data-color: "#d6d6d6"
+      data-state: "show-logo no-footer"
+    logo: images/white_logo.png
+    transition: fade
+    transition-speed: fast
+    background-transition: fade
+    chalkboard: false
+    footer: |
+      <div class="custom-footer">
+        <span class="footer-left">MSDA – IFP Programme</span>
+      </div>

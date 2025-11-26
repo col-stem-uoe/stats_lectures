@@ -1,0 +1,201 @@
+ID,Degree,Year,Gender,Study_hours,Sleep_hours,Stress_level,Satisfaction_Likert_item,Satisfaction_Likert_value,Coffee_per_day,Social_media_hr,Exercise,Overall_mark,IQ
+S001,Architecture,2,Female,6.8,7.4,Moderate,Satisfied,4,1,2.4,Yes,68,102
+S002,Linguistics,1,Male,3.1,5.8,High,Dissatisfied,2,3,4.7,No,55,108
+S003,English,2,Female,8.2,7.6,Low,Very Satisfied,5,1,2.0,Yes,78,95
+S004,Philosophy,1,Male,5.5,6.7,Moderate,Satisfied,4,2,3.0,No,65,110
+S005,Linguistics,2,Non-binary,4.0,5.9,High,Dissatisfied,2,2,4.1,No,58,99
+S006,Linguistics,2,Female,7.4,7.8,Low,Very Satisfied,5,1,2.1,Yes,74,106
+S007,Philosophy,2,Male,2.7,5.0,High,Very Dissatisfied,1,4,5.2,No,49,88
+S008,Education,3,Female,9.0,8.2,Low,Very Satisfied,5,0,2.5,Yes,81,120
+S009,Anthropology,2,Male,5.9,6.6,Moderate,Satisfied,4,2,3.2,Yes,66,100
+S010,Sociology,2,Female,6.3,7.1,Moderate,Satisfied,4,1,2.7,Yes,70,104
+S011,Design,1,Male,4.4,6.0,High,Dissatisfied,2,3,4.5,No,56,97
+S012,English,3,Non-binary,7.7,7.5,Low,Very Satisfied,5,0,1.9,Yes,75,112
+S013,Psychology,1,Female,5.1,6.3,Moderate,Neutral,3,2,3.4,No,63,101
+S014,Psychology,1,Male,3.8,5.4,High,Dissatisfied,2,3,5.1,No,54,94
+S015,English,2,Female,8.5,7.9,Low,Very Satisfied,5,1,2.0,Yes,79,115
+S016,Psychology,2,Male,6.0,7.0,Moderate,Satisfied,4,2,2.9,Yes,68,103
+S017,English,2,Female,7.2,7.7,Low,Very Satisfied,5,1,2.2,Yes,76,111
+S018,Design,3,Male,2.9,5.5,High,Dissatisfied,2,3,4.8,No,52,90
+S019,Anthropology,2,Female,6.7,7.3,Moderate,Satisfied,4,2,3.1,Yes,69,105
+S020,Business,1,Non-binary,4.5,6.1,High,Dissatisfied,2,3,4.3,No,57,98
+S021,Sociology,1,Female,8.1,7.6,Low,Very Satisfied,5,1,2.4,Yes,77,117
+S022,Linguistics,2,Male,5.8,6.8,Moderate,Satisfied,4,2,3.0,Yes,66,107
+S023,Philosophy,3,Female,3.2,5.6,High,Dissatisfied,2,3,4.6,No,53,92
+S024,Linguistics,3,Male,7.0,7.4,Low,Very Satisfied,5,1,2.3,Yes,74,113
+S025,Anthropology,2,Female,6.4,7.1,Moderate,Satisfied,4,2,2.8,Yes,68,104
+S026,Business,1,Male,4.7,6.0,High,Dissatisfied,2,3,4.2,No,57,95
+S027,Politics,1,Female,9.1,8.3,Low,Very Satisfied,5,0,2.1,Yes,82,119
+S028,Anthropology,2,Male,5.3,6.5,Moderate,Neutral,3,2,3.3,Yes,64,99
+S029,Linguistics,2,Female,7.6,7.8,Low,Very Satisfied,5,1,2.0,Yes,78,109
+S030,History,1,Non-binary,3.5,5.8,High,Dissatisfied,2,3,4.4,No,55,96
+S031,Anthropology,1,Female,6.6,6.8,Moderate,Satisfied,4,3,3.2,Yes,63,104
+S032,Psychology,2,Female,5.5,5.6,Moderate,Neutral,3,2,3.0,No,63,103
+S033,Psychology,2,Female,5.5,7.1,Moderate,Satisfied,4,2,2.6,Yes,62,90
+S034,Architecture,1,Male,5.1,6.9,Moderate,Satisfied,4,1,2.6,No,55,116
+S035,Psychology,1,Non-binary,4.4,6.2,High,Dissatisfied,2,3,4.1,No,57,97
+S036,Architecture,2,Female,6.4,6.7,Moderate,Neutral,3,2,3.9,No,64,93
+S037,Education,2,Female,7.6,7.8,Moderate,Satisfied,4,1,2.0,Yes,68,100
+S038,Philosophy,2,Female,3.1,6.2,High,Dissatisfied,2,3,4.6,No,60,101
+S039,Linguistics,1,Female,6.9,7.5,Moderate,Satisfied,4,2,2.3,Yes,71,108
+S040,Philosophy,3,Female,7.5,7.0,Low,Very Satisfied,5,2,1.8,Yes,72,107
+S041,Politics,2,Male,3.8,5.7,High,Dissatisfied,2,3,4.3,No,52,96
+S042,Anthropology,2,Female,8.0,7.8,Low,Very Satisfied,5,0,1.8,Yes,77,104
+S043,English,2,Male,2.5,6.7,High,Dissatisfied,2,3,4.6,No,53,108
+S044,Education,1,Male,5.8,6.3,Moderate,Satisfied,4,3,2.6,Yes,68,105
+S045,Psychology,1,Female,7.5,7.6,Low,Very Satisfied,5,1,1.9,Yes,72,102
+S046,Education,3,Male,5.9,7.3,Low,Very Satisfied,5,1,3.0,Yes,75,116
+S047,Design,1,Female,8.0,8.2,Low,Very Satisfied,5,1,1.7,Yes,76,102
+S048,Philosophy,1,Male,6.0,6.8,Moderate,Satisfied,4,1,3.3,Yes,69,106
+S049,Linguistics,1,Female,8.0,7.7,Low,Very Satisfied,5,1,3.5,Yes,75,110
+S050,Politics,3,Female,7.0,7.0,Low,Very Satisfied,5,1,2.1,Yes,78,113
+S051,English,2,Female,7.8,7.4,Moderate,Satisfied,4,1,3.1,Yes,72,95
+S052,Philosophy,2,Male,5.7,7.4,Moderate,Satisfied,4,2,2.4,Yes,58,99
+S053,History,3,Male,5.4,7.0,Moderate,Satisfied,4,3,3.6,No,72,108
+S054,History,1,Non-binary,4.4,5.8,High,Dissatisfied,2,1,4.2,No,54,97
+S055,Anthropology,2,Male,4.7,6.4,High,Dissatisfied,2,2,4.8,No,51,96
+S056,History,2,Male,3.4,5.9,High,Dissatisfied,2,3,4.4,No,55,85
+S057,History,2,Female,7.3,7.9,Low,Very Satisfied,5,1,2.3,Yes,77,109
+S058,Sociology,2,Male,7.0,7.7,Low,Very Satisfied,5,1,1.7,Yes,75,113
+S059,Politics,1,Non-binary,8.4,8.0,Low,Very Satisfied,5,0,1.7,Yes,77,118
+S060,Linguistics,2,Male,3.8,5.0,High,Dissatisfied,2,3,4.2,No,56,100
+S061,History,1,Female,6.3,7.1,Moderate,Satisfied,4,1,2.4,Yes,70,103
+S062,Psychology,1,Female,6.8,8.1,Low,Very Satisfied,5,2,1.6,Yes,78,116
+S063,Architecture,3,Male,3.1,6.7,High,Dissatisfied,2,3,4.3,No,43,108
+S064,Politics,1,Female,5.7,7.0,Moderate,Satisfied,4,1,3.1,Yes,73,115
+S065,Education,3,Male,5.7,6.0,Moderate,Neutral,3,1,2.1,Yes,66,106
+S066,Linguistics,2,Male,4.0,6.0,High,Dissatisfied,2,2,4.6,No,51,92
+S067,Linguistics,2,Non-binary,4.3,5.9,High,Dissatisfied,2,3,3.8,No,55,95
+S068,Education,1,Female,8.7,8.1,Low,Very Satisfied,5,0,2.3,Yes,84,118
+S069,Anthropology,1,Female,6.3,5.9,Moderate,Satisfied,4,1,3.3,Yes,68,109
+S070,Education,3,Male,4.8,5.9,High,Dissatisfied,2,3,4.4,No,50,93
+S071,Philosophy,1,Female,8.1,8.1,Low,Very Satisfied,5,1,1.7,Yes,72,112
+S072,Psychology,3,Non-binary,3.3,5.4,High,Dissatisfied,2,2,4.7,No,59,101
+S073,Linguistics,2,Male,5.5,6.4,High,Dissatisfied,2,3,4.7,No,57,104
+S074,Education,2,Male,4.0,5.5,High,Dissatisfied,2,3,4.5,No,61,92
+S075,History,1,Male,5.3,6.7,Moderate,Satisfied,4,2,3.5,Yes,64,101
+S076,Linguistics,3,Male,6.7,6.3,Moderate,Satisfied,4,2,3.0,Yes,70,103
+S077,History,2,Female,8.1,7.3,Low,Very Satisfied,5,0,1.8,Yes,74,112
+S078,Anthropology,2,Male,5.0,5.2,High,Dissatisfied,2,2,5.1,No,52,107
+S079,Linguistics,3,Female,7.2,7.6,Low,Very Satisfied,5,1,2.2,Yes,79,112
+S080,Design,2,Female,8.7,7.4,Low,Very Satisfied,5,0,2.1,Yes,79,121
+S081,Politics,1,Female,6.2,6.9,Moderate,Satisfied,4,2,2.2,Yes,76,101
+S082,Politics,1,Female,6.6,7.9,Low,Very Satisfied,5,1,2.0,Yes,70,112
+S083,History,1,Male,5.4,5.9,Moderate,Satisfied,4,2,3.1,Yes,59,103
+S084,Architecture,3,Female,7.3,7.8,Low,Very Satisfied,5,1,2.3,Yes,81,117
+S085,Philosophy,1,Female,8.1,8.1,Low,Very Satisfied,5,1,1.7,Yes,76,106
+S086,Linguistics,2,Male,3.6,5.4,High,Dissatisfied,2,2,4.8,No,53,88
+S087,Philosophy,2,Male,6.4,7.7,Low,Very Satisfied,5,1,3.2,Yes,73,116
+S088,English,2,Female,7.3,7.7,Low,Very Satisfied,5,1,2.3,Yes,74,113
+S089,Education,1,Female,8.3,8.5,Low,Very Satisfied,5,1,2.7,Yes,72,111
+S090,Linguistics,3,Female,5.7,7.6,Moderate,Satisfied,4,3,2.8,Yes,80,100
+S091,Sociology,1,Female,9.6,8.6,Low,Very Satisfied,5,0,2.7,Yes,80,121
+S092,Education,2,Male,2.1,4.3,High,Very Dissatisfied,1,4,5.2,No,48,88
+S093,Education,3,Male,5.1,6.6,Moderate,Satisfied,4,2,3.6,Yes,62,102
+S094,Business,3,Male,3.3,5.7,High,Dissatisfied,2,3,5.0,No,54,90
+S095,Business,2,Female,6.2,7.6,Moderate,Satisfied,4,3,3.1,Yes,70,101
+S096,Psychology,3,Male,5.5,7.0,Moderate,Satisfied,4,2,3.0,Yes,69,98
+S097,History,3,Female,7.4,8.3,Moderate,Satisfied,4,1,3.5,Yes,68,107
+S098,Business,1,Male,5.9,6.8,Moderate,Satisfied,4,3,2.6,Yes,62,97
+S099,Politics,2,Female,2.3,5.3,High,Dissatisfied,2,2,4.4,No,55,95
+S100,Business,1,Male,6.2,6.7,Moderate,Satisfied,4,3,3.9,Yes,67,107
+S101,Education,2,Male,3.8,6.3,High,Dissatisfied,2,3,5.1,No,52,96
+S102,English,2,Female,9.9,8.6,Low,Very Satisfied,5,0,3.8,Yes,77,126
+S103,Philosophy,1,Male,5.1,7.1,Moderate,Satisfied,4,2,3.2,Yes,64,111
+S104,Anthropology,3,Non-binary,3.2,5.7,High,Dissatisfied,2,3,4.3,No,53,103
+S105,Psychology,1,Female,6.8,7.8,Moderate,Satisfied,4,2,3.5,Yes,58,101
+S106,Politics,2,Female,5.8,6.4,Moderate,Satisfied,4,1,2.4,Yes,72,109
+S107,Philosophy,1,Female,6.2,7.1,Moderate,Satisfied,4,0,2.9,Yes,68,104
+S108,Linguistics,2,Female,8.4,7.7,Low,Very Satisfied,5,1,1.5,Yes,76,94
+S109,Psychology,1,Non-binary,2.6,6.2,High,Dissatisfied,2,3,4.8,No,56,105
+S110,Education,2,Non-binary,4.6,6.1,High,Dissatisfied,2,2,3.3,No,58,95
+S111,Linguistics,3,Female,6.0,6.9,Moderate,Satisfied,4,2,2.4,Yes,67,102
+S112,Design,2,Male,4.5,7.1,Moderate,Neutral,3,2,4.2,Yes,63,100
+S113,Politics,2,Female,8.1,8.4,Low,Very Satisfied,5,1,1.1,Yes,76,94
+S114,History,1,Female,5.9,8.6,Low,Very Satisfied,5,1,2.4,Yes,77,115
+S115,History,3,Male,2.9,5.7,High,Dissatisfied,2,2,4.6,No,51,98
+S116,History,2,Male,5.6,8.1,Moderate,Satisfied,4,2,3.7,Yes,71,108
+S117,Linguistics,3,Female,3.4,5.9,High,Dissatisfied,2,3,3.7,No,52,86
+S118,English,3,Female,3.1,5.8,High,Dissatisfied,2,3,3.9,No,51,88
+S119,Linguistics,2,Non-binary,4.5,5.9,High,Dissatisfied,2,2,5.3,No,60,104
+S120,Psychology,2,Female,7.1,7.4,Low,Very Satisfied,5,1,1.8,Yes,77,104
+S121,Design,2,Female,8.1,7.7,Low,Very Satisfied,5,1,1.9,Yes,76,109
+S122,Psychology,3,Male,7.0,7.4,Low,Very Satisfied,5,2,2.1,Yes,70,108
+S123,Sociology,3,Non-binary,4.2,5.9,High,Dissatisfied,2,3,4.6,No,61,88
+S124,Business,1,Male,2.8,5.0,High,Very Dissatisfied,1,3,5.0,No,52,85
+S125,Design,2,Non-binary,7.2,6.4,Low,Very Satisfied,5,0,1.8,Yes,75,109
+S126,History,3,Male,5.1,7.2,Moderate,Satisfied,4,3,2.5,No,62,113
+S127,Linguistics,2,Male,5.0,5.6,Moderate,Neutral,3,2,3.4,Yes,73,100
+S128,Anthropology,2,Non-binary,4.1,6.0,High,Dissatisfied,2,2,4.3,No,64,100
+S129,Architecture,2,Male,5.2,6.6,Moderate,Neutral,3,2,3.9,Yes,69,101
+S130,Politics,3,Female,7.2,7.8,Low,Very Satisfied,5,1,2.3,Yes,81,115
+S131,Business,1,Female,7.7,7.1,Moderate,Satisfied,4,1,2.6,Yes,67,108
+S132,Psychology,2,Female,8.6,8.2,Low,Very Satisfied,5,1,2.0,Yes,81,110
+S133,History,3,Non-binary,3.6,6.2,High,Dissatisfied,2,1,4.8,No,59,100
+S134,Design,2,Male,5.2,6.4,High,Dissatisfied,2,4,3.5,No,58,103
+S135,History,1,Female,5.4,6.0,Moderate,Neutral,3,2,3.1,No,61,99
+S136,Anthropology,1,Male,5.5,7.3,Moderate,Satisfied,4,2,2.8,Yes,66,108
+S137,Sociology,2,Female,6.2,6.6,Moderate,Satisfied,4,1,2.3,Yes,67,105
+S138,Linguistics,1,Female,7.3,7.4,Moderate,Satisfied,4,1,3.2,Yes,72,112
+S139,English,1,Female,5.8,6.8,Moderate,Satisfied,4,0,2.3,Yes,67,108
+S140,Sociology,2,Female,7.3,7.8,Moderate,Satisfied,4,0,2.7,Yes,77,97
+S141,Psychology,3,Male,4.5,4.9,High,Dissatisfied,2,3,4.5,No,52,90
+S142,Anthropology,1,Male,2.7,6.3,High,Dissatisfied,2,4,4.7,No,56,108
+S143,Linguistics,2,Female,4.1,4.7,High,Dissatisfied,2,4,5.3,No,60,93
+S144,Linguistics,1,Male,7.5,6.7,Low,Very Satisfied,5,1,1.8,Yes,71,123
+S145,Education,3,Female,9.7,8.1,Low,Very Satisfied,5,0,2.2,Yes,86,123
+S146,Design,2,Male,4.6,6.1,High,Dissatisfied,2,4,4.3,No,53,95
+S147,English,1,Female,4.5,7.0,Moderate,Neutral,3,2,3.0,No,63,104
+S148,Anthropology,1,Female,8.8,8.3,Low,Very Satisfied,5,1,2.2,Yes,81,113
+S149,Politics,3,Male,3.0,6.3,High,Dissatisfied,2,3,4.2,No,55,99
+S150,Anthropology,1,Female,7.1,7.3,Low,Very Satisfied,5,1,1.9,Yes,84,112
+S151,Linguistics,1,Female,8.0,7.6,Low,Very Satisfied,5,1,1.6,Yes,83,99
+S152,Linguistics,2,Female,8.0,7.4,Low,Very Satisfied,5,2,3.5,Yes,82,110
+S153,Business,2,Male,5.7,6.6,Moderate,Satisfied,4,2,2.5,No,65,109
+S154,Psychology,1,Male,7.0,6.8,Moderate,Satisfied,4,3,2.9,Yes,59,102
+S155,Anthropology,2,Female,6.4,6.9,Moderate,Satisfied,4,2,4.0,Yes,72,105
+S156,History,1,Female,7.4,7.9,Low,Very Satisfied,5,2,2.2,Yes,76,111
+S157,Philosophy,1,Non-binary,6.8,7.8,Low,Very Satisfied,5,0,1.9,Yes,72,105
+S158,Psychology,2,Male,6.5,5.6,Moderate,Satisfied,4,2,2.2,Yes,67,100
+S159,Philosophy,2,Male,6.1,6.0,Moderate,Satisfied,4,2,3.4,No,66,113
+S160,Education,2,Male,5.1,6.3,Moderate,Satisfied,4,3,3.2,No,64,117
+S161,Psychology,3,Male,3.2,5.1,High,Dissatisfied,2,4,5.1,No,56,87
+S162,Business,3,Female,6.1,7.1,Moderate,Satisfied,4,2,2.3,Yes,77,99
+S163,Design,3,Female,8.2,8.2,Low,Very Satisfied,5,1,2.2,Yes,80,123
+S164,Linguistics,2,Female,6.7,6.5,Moderate,Satisfied,4,2,2.8,Yes,72,114
+S165,Linguistics,3,Male,3.3,4.8,High,Very Dissatisfied,1,4,5.7,No,58,85
+S166,Design,3,Male,5.9,6.4,Moderate,Satisfied,4,2,3.1,Yes,68,108
+S167,Psychology,2,Non-binary,6.6,8.0,Low,Very Satisfied,5,0,0.8,Yes,76,110
+S168,Education,2,Female,7.8,7.3,Moderate,Satisfied,4,2,1.6,Yes,72,91
+S169,Business,2,Male,6.3,6.6,Moderate,Satisfied,4,1,2.6,Yes,68,98
+S170,Anthropology,1,Male,5.9,7.1,Moderate,Satisfied,4,2,3.5,Yes,68,111
+S171,Design,3,Non-binary,2.5,5.5,High,Dissatisfied,2,3,3.5,No,50,95
+S172,Sociology,2,Female,8.4,7.0,Low,Very Satisfied,5,1,2.0,Yes,79,113
+S173,History,2,Male,5.9,6.4,Moderate,Satisfied,4,2,3.0,Yes,72,99
+S174,Business,2,Female,7.5,7.4,Low,Very Satisfied,5,1,2.0,Yes,74,104
+S175,Design,2,Male,6.2,6.0,Moderate,Satisfied,4,2,3.7,Yes,74,92
+S176,Politics,3,Non-binary,7.2,7.6,Low,Very Satisfied,5,1,2.4,Yes,75,106
+S177,Anthropology,3,Female,6.0,7.2,Moderate,Satisfied,4,1,2.8,Yes,73,102
+S178,History,2,Non-binary,7.2,7.6,Low,Very Satisfied,5,0,1.0,Yes,72,110
+S179,Business,2,Non-binary,7.6,8.6,Low,Very Satisfied,5,0,2.4,Yes,74,104
+S180,Anthropology,1,Female,6.5,7.5,Low,Very Satisfied,5,1,2.6,Yes,77,112
+S181,Sociology,2,Male,4.4,4.2,High,Dissatisfied,2,3,4.7,No,54,98
+S182,Business,1,Male,5.0,5.7,High,Dissatisfied,2,3,3.8,No,60,100
+S183,Architecture,3,Female,7.2,7.0,Moderate,Satisfied,4,1,3.8,Yes,67,106
+S184,Anthropology,2,Female,8.9,8.4,Low,Very Satisfied,5,0,2.1,Yes,76,125
+S185,Psychology,1,Non-binary,3.7,6.2,High,Dissatisfied,2,3,4.9,No,55,94
+S186,Psychology,1,Non-binary,7.4,7.6,Low,Very Satisfied,5,1,2.1,Yes,78,106
+S187,Psychology,1,Female,7.2,6.1,Moderate,Satisfied,4,1,3.1,Yes,76,99
+S188,Anthropology,2,Male,2.1,5.3,High,Dissatisfied,2,3,4.8,No,47,101
+S189,Psychology,3,Non-binary,3.7,5.9,High,Dissatisfied,2,2,4.7,No,50,96
+S190,Anthropology,3,Non-binary,7.6,6.8,Low,Very Satisfied,5,0,1.0,Yes,73,106
+S191,Design,2,Male,2.8,5.4,High,Very Dissatisfied,1,4,4.7,No,54,88
+S192,Business,3,Non-binary,5.4,5.7,High,Dissatisfied,2,2,3.6,No,53,104
+S193,Education,2,Male,3.3,4.5,High,Very Dissatisfied,1,4,4.9,No,47,90
+S194,Politics,2,Male,6.2,6.5,Moderate,Satisfied,4,2,3.2,Yes,72,100
+S195,Design,2,Non-binary,4.0,5.6,High,Dissatisfied,2,3,4.5,No,56,102
+S196,English,1,Female,5.8,7.1,Moderate,Satisfied,4,1,3.1,Yes,68,104
+S197,Linguistics,2,Male,5.2,7.2,Moderate,Satisfied,4,3,2.3,Yes,67,101
+S198,History,3,Male,4.3,5.3,High,Dissatisfied,2,4,5.2,No,57,90
+S199,Design,3,Male,5.0,5.4,High,Dissatisfied,2,1,4.2,No,55,101
+S200,Philosophy,2,Female,3.7,4.9,High,Dissatisfied,2,3,4.1,No,46,85

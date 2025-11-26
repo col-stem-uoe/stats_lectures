@@ -1,0 +1,202 @@
+---
+title: "Lecture 4 – Hypothesis Testing & t-tests "
+subtitle: "MSDA – IFP Programme"
+author: "Javiera Alfaro Chat"
+format:
+  revealjs:
+    code-line-numbers: true
+    theme: [default, edtheme.scss]
+    include-after-body: [autoscale-tables.html, menu-projection-toggle.html]
+    embed-resources: true
+    fig-align: center
+    fig-format: png
+    slide-number: true
+    slide-number-format: "c / t "   # current / total
+    progress: false
+    smaller: true
+    menu: true
+    footer: |
+      <div class="custom-footer">MSDA – IFP Programme</div>
+    markdown:
+      extensions: +fenced_divs +attr_span
+    allow-html: true
+    logo: images/white_logo.png
+---
+
+## 
+
+## Learning objectives
+
+1\. Interpret a confidence interval as the plausible values of a parameter that would not be rejected in a two-sided hypothesis test.
+
+2\. Determine the decision for a two-sided hypothesis test from an appropriately constructed confidence interval.
+
+3\. Be able to explain the dierence between a significant result and an important result.
+
+# 
+
+Introduction
+
+## What we have learned so far?
+
+-   how to describe a variable (centre + spread),
+
+-   how distributions behave (skew, kurtosis),
+
+-   how sample statistics can vary from sample to sample,
+
+-   how a sample mean is only an *estimate* of a population mean.
+
+**If a sample mean is only an estimate, how do we decide whether a result is “real” or just due to chance?**
+
+## Population vs Sample
+
+We performed a study by selecting a **sample from the population**.
+
+The goal is to use the **sample data** to answer questions about the population data. For example
+
+-   What's the population mean? **Goal A**: estimating a parameter.
+
+-   Could the population mean be zero? **Goal B**: testing a theory (hypothesis) about a parameter.
+
+# 
+
+Hypothesis Testing & Confidence Intervals
+
+## Why test hypotheses?
+
+-   In research we rarely observe an entire population.\
+-   We collect a **sample**, which varies naturally from sample to sample.\
+-   Hypothesis testing helps us answer questions such as:
+    -   *“Is this difference likely to be real?”*\
+    -   *“Or could it have happened just by chance?”*
+
+## Why test hypotheses?
+
+Many questions in psychology ask whether an observed difference could simply be due to **chance variation**.
+
+-   Example: A group of students has an average score of 68.\
+    But is this *really* different from the national average of 65?
+
+-   Or was our sample simply a little higher *by chance*?
+
+To answer this, we need a **formal framework** for deciding whether the difference in our sample is large enough to conclude a real effect.
+
+→ This is what **hypothesis testing** provides.
+
+## At the heart of hypothesis testing are two competing ideas:
+
+::::: columns
+::: column
+-   **Null hypothesis (H₀):**\
+    “Nothing is going on.”\
+    There is *no real difference*. Any difference is just sampling variability.
+
+    -   Example:
+        -   H₀: The average exam mark this year = last year.
+:::
+
+::: column
+-   **Alternative hypothesis (H₁):**\
+    “Something is going on.”\
+    There **is** a real difference in the population.
+
+    -   Example:
+        -   H₁: The average exam mark this year ≠ last year.
+:::
+:::::
+
+Example:\
+H₀: μ = 65\
+H₁: μ ≠ 65
+
+We collect data to see which hypothesis is more consistent with our sample.
+
+## Sampling variation
+
+-   Every sample gives a slightly different mean.\
+-   If we repeatedly sampled from the same population, we would get a **sampling distribution** of sample means.\
+-   Most sample means will be near the true population mean.\
+-   Extreme sample means are possible, but **unlikely**.
+
+## The t-test 
+
+-   A t-test asks: *How far is our sample mean from what H₀ predicts?*
+-   We measure this in **standard errors**.\
+-   If the difference is:
+    -   **Small** → fits comfortably within what we expect from chance variation.
+
+    -   **Large** → unlikely to be due to chance alone.
+-   The t-test standardises this difference by:
+    -   The standard deviation
+    -   The sample size
+
+Result: a **t-value** telling us how unusual our sample is under H₀.
+
+## What is a p-value?
+
+### A visual idea (no maths needed):
+
+-   Imagine the sampling distribution **if H₀ were true**.
+-   The p-value tells us:
+
+> **How likely is it to get a result as extreme as ours if the null hypothesis were true?**
+
+-   **Small p-value** → our data are unlikely under H₀ → evidence *against* H₀.
+-   **Large p-value** → our data are plausible under H₀ → *keep* H₀.
+
+## Interpreting p-values
+
+-   p \< 0.05 is a common rule of thumb for “statistical significance”.
+    -   Means the result is unlikely to have occurred purely by chance.\
+-   But remember:
+    -   p-values **do not** tell us the size of the effect.
+    -   p-values **do not** tell us how important a result is.
+    -   p-values **do not** tell us the probability that H₀ is true.
+
+## Confidence interval = range of plausible values
+
+-   A CI gives a range of population means consistent with our sample.
+-   If the hypothesised value lies **inside** the CI → plausible → do not reject H₀.
+-   If it lies **outside** the CI → implausible → reject H₀.
+
+## Confidence intervals = range of plausible values
+
+-   A **95% confidence interval (CI)** gives a range of values that are **compatible with the data**.\
+
+-   Not: “There is a 95% chance the true value is inside the interval.”\
+
+-   Instead:\
+    \> If we repeated the study many times, 95% of the calculated intervals would contain the true value.
+
+-   Practical interpretation:\
+    \> “These are the values that make sense, given our data.”
+
+## CI and significance
+
+-   If a **95% CI for a mean difference *does not include 0*** → the difference is “statistically significant”.\
+-   Because 0 (no difference) is *not plausible*.\
+-   If the CI *does include* 0 → we do not have evidence of a real difference.
+
+This matches the p-value rule: - CI excludes 0 ↔ p \< 0.05\
+- CI includes 0 ↔ p ≥ 0.05
+
+## Example conclusion (in words)
+
+> “The treatment group scored higher on average than the control group.\
+> The difference was statistically significant (t = …, p = …).\
+> The 95% confidence interval for the difference did not include zero, suggesting a real difference in the population.”
+
+-   Clear
+-   Non-technical
+-   Answers: *What does this result actually mean?*
+
+## Summary
+
+-   Hypothesis tests help us judge whether differences are likely to reflect real effects rather than chance.\
+-   p-values tell us how unusual the data are if H₀ were true.\
+-   CIs give a range of plausible values.\
+-   t-tests compare means by combining:
+    -   difference in means
+    -   sample size
+    -   variability (SD)

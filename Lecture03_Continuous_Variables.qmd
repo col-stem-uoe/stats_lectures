@@ -1,0 +1,993 @@
+---
+title: "Lecture 3 – Describing Continuous Data "
+subtitle: "Stats & Data Analysis Block<br> MSDA – IFP Programme"
+author: "Javiera Alfaro Chat"
+format:
+  revealjs:
+    theme: [default, edtheme.scss]
+    smaller: true
+    margin: 0.03        # less outer margin, more space for content
+    maxScale: 1.5
+    minScale: 0.3
+    code-line-numbers: true
+    include-after-body: [autoscale-tables.html, menu-projection-toggle.html]
+    embed-resources: true
+    fig-align: center
+    fig-format: png
+    slide-number: true
+    slide-number-format: "c / t "   # current / total
+    progress: false
+    menu: true
+    footer: |
+      <div class="custom-footer">MSDA – IFP Programme</div>
+    markdown:
+      extensions: +fenced_divs +attr_span
+    allow-html: true
+    logo: images/white_logo.png
+---
+
+```{r}
+#| message: false
+#| warning: false
+
+library(tidyverse)
+theme_set(theme_minimal())
+
+students <- read_csv("data/Lecture1_data.csv", show_col_types = FALSE)
+
+# "class heights" example separate from the file:
+set.seed(123)
+heights <- tibble(
+  Height = rnorm(120, mean = 170, sd = 9)
+)
+```
+
+# Course Overview
+
+## Week’s Learning Objectives
+
+1.  Understand appropriate visualisations for the distribution of numeric data.
+
+2.  Understand methods to calculate the spread of a numeric distribution.
+
+3.  Understand methods to calculate central tendency for numeric data.
+
+## Topics for Today
+
+-   Histograms
+
+-   The mean
+
+-   Variance and standard deviation
+
+## Recap: continuous data
+
+Continuous (numeric) data is typically classed as:
+
+-   **Interval**
+
+-   **Ratio**
+
+This means:
+
+-   The numeric values are meaningful as numbers.
+
+-   We can legitimately apply mathematical operations to these values.
+
+## Visualising continuous data
+
+-   Last time we used bar plots for frequency distributions of **categorical** variables.
+
+-   For **continuous** data, we visualise the distribution using a **histogram**.
+
+**Example:** histogram of the heights of a class
+
+```{r}
+library(ggplot2)
+
+ggplot(heights, aes(x = Height)) +
+geom_histogram(
+bins  = 20,
+colour = "white",
+fill   = "steelblue4"
+) +
+labs(
+x = "Height (cm)",
+y = "Count"
+)
+
+```
+
+## Histogram of a continuous variable (Overall_mark)
+
+::::: columns
+::: column
+### Histogram: properties
+
+-   **X-axis**: possible values of some variable
+
+    -   Commonly presented in *bins*
+
+-   **Bin**: a range of scores
+
+    -   The shape of the plot can look very different depending on bin width
+
+-   **Scale**: depends on the form of measurement
+
+    -   Here, height in centimetres
+
+-   **Y-axis**: frequency (count) for values falling within each bin
+:::
+
+::: column
+```{r, echo=TRUE}
+ggplot(students, aes(x = Overall_mark)) +
+geom_histogram(
+bins  = 20,
+colour = "white",
+fill   = "steelblue4"
+) +
+labs(
+x = "Overall course mark",
+y = "Count"
+)
+
+```
+:::
+:::::
+
+## Let's think.... Why?
+
+Why have we used **bins** (ranges of values) and not individual values on the X-axis?
+
+:::::: columns
+::: column
+```{r}
+ggplot(students, aes(x = Overall_mark)) +
+geom_point(
+aes(y = 0),
+position = position_jitter(height = 0.05),
+alpha = 0.6,
+colour = "steelblue4"
+) +
+labs(
+x = "Overall course mark",
+y = ""
+) +
+theme(
+axis.text.y = element_blank(),
+axis.ticks.y = element_blank()
+)
+
+```
+:::
+
+:::: column
+::: fragment
+```{r}
+ggplot(students, aes(x = Overall_mark)) +
+geom_histogram(
+bins  = 20,
+colour = "white",
+fill   = "steelblue4"
+) +
+labs(
+x = "Overall course mark",
+y = "Count"
+)
+```
+:::
+::::
+::::::
+
+## Let's think.... Why?
+
+Why have we used **bins** (ranges of values) and not individual values on the X-axis?
+
+:::::: columns
+::: column
+```{r,echo=TRUE}
+
+ggplot(students, aes(x = Overall_mark)) +
+geom_point(
+aes(y = 0),
+position = position_jitter(height = 0.05),
+alpha = 0.6,
+colour = "steelblue4"
+) +
+labs(
+x = "Overall course mark",
+y = ""
+) +
+theme(
+axis.text.y = element_blank(),
+axis.ticks.y = element_blank()
+)
+
+```
+:::
+
+:::: column
+::: fragment
+```{r, echo=TRUE}
+ggplot(students, aes(x = Overall_mark)) +
+geom_histogram(
+bins  = 20,
+colour = "white",
+fill   = "steelblue4"
+) +
+labs(
+x = "Overall course mark",
+y = "Count"
+)
+```
+:::
+::::
+::::::
+
+## Impact of bin width
+
+The shape of a histogram depends strongly on the bins.
+
+::::: columns
+::: column
+```{r}
+#| echo: true
+#| code-line-numbers: "3"
+
+ggplot(heights, aes(x = Height)) +
+  geom_histogram(
+    bins  = 5,
+    colour = "white",
+    fill   = "steelblue4"
+  ) +
+  labs(x = "Height (cm)", y = "Count")
+```
+:::
+
+::: column
+```{r}
+#| echo: true
+#| code-line-numbers: "3"
+ggplot(heights, aes(x = Height)) +
+  geom_histogram(
+    bins  = 30,                   
+    colour = "white",
+    fill   = "steelblue4"
+  ) +
+  labs(x = "Height (cm)", y = "Count")
+```
+:::
+:::::
+
+## Code for the histogram
+
+::::: columns
+::: column
+```{r, echo=TRUE}
+
+ggplot(data = students, aes(x = Overall_mark)) +
+geom_histogram(
+bins  = 15,
+colour = "white",
+fill   = "steelblue4"
+) +
+xlab("Overall course mark") +
+ylab("Count\n")
+
+```
+:::
+
+::: column
+New bits of code:
+
+-   `geom_histogram()` is used for histograms.
+
+-   `bins` sets the number of bars.
+
+-   `colour` sets the outline colour.
+
+-   `fill` sets the main bar colour.
+:::
+:::::
+
+## Central tendency: the mean
+
+> Last lecture we looked at the **mode** and **median**.
+
+-   Both can be used for continuous data, but the most common measure is the **arithmetic mean**:
+
+    -   The sum of all values, divided by the total number of observations.
+    -   This is the everyday idea of the **average**.
+
+$$
+\bar{x} = \frac{\sum_{i = 1}^{n} x_i}{n}
+$$
+
+Where:
+
+-   $\bar{x}$ = estimate of the mean of the variable ${x}$
+
+-   $x_i$ = individual values of ${x}$
+
+-   $n$ = sample size
+
+## Hand calculation:
+
+```{r}
+# Extract data
+vals       <- students$Overall_mark
+n_vals     <- length(vals)
+sum_vals   <- sum(vals)
+mean_vals  <- mean(vals)
+
+# Strings for display
+vec_string <- paste(vals, collapse = ", ")
+sum_string <- paste(vals, collapse = " + ")
+```
+
+::::: columns
+::: column
+$$
+\bar{x} = \frac{\sum_{i = 1}^{n} x_i}{n}
+$$
+:::
+
+::: column
+-   $\bar{x}$ = estimate of the mean of the variable ${x}$
+-   $x_i$ = individual values of ${x}$
+-   $n$ = sample size
+:::
+:::::
+
+> **Our data** (200 values):
+
+<br>
+
+${x}$ = \[68, 55, 78, 65, 76 ...., 57, 55,46\]
+
+<br>
+
+> **Worked calculation**:
+
+$$
+\frac{
+\sum_{i=1}^{`r n_vals`} (68+55+78+65+76+....57+55+46) 
+}{`r n_vals`}
+$$
+
+$$
+\bar{x} = 
+\frac{ 13\,248}{200} 
+= `r round(mean_vals, 2)`
+$$
+
+## Calculating the mean in R
+
+::::: columns
+::: column
+#### Following hand-calculation in R
+
+```{r, echo=TRUE}
+sum(students$Overall_mark) / length(students$Overall_mark)
+```
+
+<br>
+
+#### Short way in R
+
+```{r, echo=TRUE}
+mean(students$Overall_mark)
+```
+:::
+
+::: column
+#### Working with tidyverse
+
+```{r, echo=TRUE}
+library(dplyr)
+
+students |>
+summarise(
+mean_Overall_mark = mean(Overall_mark)
+)
+
+```
+:::
+:::::
+
+<br> We will work with **tidyverse** and `summarise()` to build up summary tables for our data sets.
+
+## Variation around the mean
+
+::::: columns
+::: column
+```{r}
+library(ggplot2)
+
+vals <- students$Overall_mark
+df <- data.frame(ID = seq_along(vals), x = vals)
+mean_x <- mean(vals)
+
+ggplot(df, aes(x = ID, y = x)) +
+  geom_point(alpha = .8, colour = "#1F4E79") +
+  geom_segment(aes(xend = ID, y = mean_x, yend = x),
+               linetype = "dashed", alpha = .4, colour = "#1F4E79") +
+  geom_hline(yintercept = mean_x, colour = "black", linewidth = 0.8) +
+  labs(y = "Overall Mark", x = "Student ID") +
+  theme_minimal(base_size = 20)
+```
+:::
+
+::: column
+-   Each dot is a student's mark.\
+-   The **solid horizontal line** is the *mean* (average).\
+-   The **dashed vertical lines** show how far each student’s mark is from the mean.\
+-   These distances are called **deviations**.
+:::
+:::::
+
+## Sum of deviations
+
+-   We measure how far each observation is from the mean.
+-   These differences are called **deviations**.
+-   The sum of all deviations always equals **0**, because the mean is the balance point of the distribution.
+
+$$
+\text{SumDev} = \sum_{i=1}^{n} (x_i - \bar{x})
+$$
+
+-   $x_i$ = individual observations\
+-   $\bar{x}$ = mean of ${x}$
+
+## Calculation: Example
+
+```{r}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# Your data
+vals <- students$Overall_mark
+mean_val <- mean(vals)
+
+# Build dataframe
+df_calc <- tibble(
+  ID       = paste0("ID", 101:(100 + length(vals))),
+  Overal_mark   = vals,
+  Mean     = round(mean_val, 1),
+  Deviance = round(vals - mean_val, 1)
+)
+
+# Display the first 10 rows in a nice table
+df_calc |> 
+  slice(1:10) |>
+  kable(col.names = c("ID", "Overall Mark", "Mean", "Deviance"),
+        align = "c",
+        caption = "Calculation: First 10 rows") |>
+  kable_classic(full_width = FALSE, html_font = "Cambria") |>
+  kable_styling(font_size = 18)
+
+```
+
+-   **Positive deviance** → score above the class mean\
+-   **Negative deviance** → score below the class mean\
+
+## Problem: Sum of deviations
+
+```{r}
+library(dplyr)
+library(kableExtra)
+
+students |>
+  summarise(
+    Variable        = "Overall course mark",
+    `Sum deviation` = round(sum(Overall_mark - mean(Overall_mark)), 2)
+  ) |>
+  kable(align = "c") |>
+  kable_classic(full_width = FALSE, html_font = "Cambria") |>
+  kable_styling(font_size = 18)
+
+```
+
+-   Uh oh! The positive and negative deviations cancel out.
+
+-   That means the **sum of deviations from the mean will always be 0** (up to rounding).
+
+## Variance
+
+-   In order to remove the effect of sign, we can square each of the deviations.
+-   This is called the *variance*.
+
+$$
+s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}
+$$
+
+-   Variance is the average squared deviation from the mean.
+-   $s^2$ = sample variance
+
+## Calculation
+
+```{r}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# Data and mean
+vals     <- students$Overall_mark
+mean_val <- mean(vals)
+
+# Table with deviations and squared deviations
+df_calc <- tibble(
+  ID          = paste0("ID", 101:(100 + length(vals))),
+  Overal_Mark = vals,
+  Mean        = round(mean_val, 1),
+  Deviance    = round(vals - mean_val, 1),
+  Deviance_sq = round((vals - mean_val)^2, 2)
+)
+
+# Show first 10 rows nicely formatted
+df_calc |>
+  slice(1:10) |>
+  kable(
+    col.names = c("ID", "Overall Mark", "Mean", "Deviance", "Deviance_sq"),
+    align     = "c"
+  ) |>
+  kable_classic(full_width = FALSE, html_font = "Cambria") |>
+  kable_styling(font_size = 18)
+```
+
+**What this table shows**
+
+-   **ID** – a simple label for each student (ID101, ID102, …).
+
+-   **Overal mark** – each student’s overall mark.
+
+-   **Mean** – the class mean (the same for every row).
+
+-   **Deviance** – how far each mark is from the mean:$(x_i - \bar{x})$
+
+-   **Deviance_sq** – the squared deviance$(x_i - \bar{x})^2$ .
+
+We square the deviations because positive and negative deviations cancel out when we sum them. The variance is the average of these squared deviations, so this column is exactly what we need to compute the variance and, later, the standard deviation.
+
+## Variance
+
+We can remove the effect of the sign by **squaring each deviation** from the mean.\
+This gives the **variance**, the average squared deviation from the mean.
+
+```{r}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+students |>
+  summarise(
+    Variable        = "Overall course mark",
+    `Sum deviation` = round(sum(Overall_mark - mean(Overall_mark)), 2),
+    Variance        = round(
+      sum((Overall_mark - mean(Overall_mark))^2) /
+        (length(Overall_mark) - 1),
+      2
+    )
+  ) |>
+  kbl(
+    col.names = c("Variable", "Sum deviation", "Variance"),
+    align     = "c"
+  ) |>
+  kable_classic(full_width = FALSE, html_font = "Cambria")
+```
+
+::: note
+-   Variance is **not** on the same scale as the original marks (it is in “squared marks”).
+
+-   Variance is the **mean squared deviation** from the mean.
+:::
+
+## Variance
+
+We can remove the effect of the sign by **squaring each deviation** from the mean.\
+This gives the **variance**, the average squared deviation from the mean.
+
+```{r}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+students |>
+  summarise(
+    Variable        = "Overall course mark",
+    `Sum deviation` = round(sum(Overall_mark - mean(Overall_mark)), 2),
+    Variance        = round(
+      sum((Overall_mark - mean(Overall_mark))^2) /
+        (length(Overall_mark) - 1),
+      2
+    )
+  ) |>
+  kbl(
+    col.names = c("Variable", "Sum deviation", "Variance"),
+    align     = "c"
+  ) |>
+  kable_classic(full_width = FALSE, html_font = "Cambria")
+```
+
+::: note
+-   Variance is **not** on the same scale as the original marks (it is in “squared marks”).
+
+-   Variance is the **mean squared deviation** from the mean.
+:::
+
+#### Short code in R
+
+```{r, echo=TRUE}
+var(students$Overall_mark)
+```
+
+## Standard deviation
+
+-   What about a measure of variation in the same units as the mean/variable?
+
+-   The *standard deviation*.
+
+-   The standard deviation is the square root of the variance.
+
+-   Taking the square root undoes (or fixes) the squaring of deviations that we did to get the variance.
+
+$$
+s = \sqrt{ \frac{ \sum_{i=1}^{n} (x_i - \bar{x})^2 }{ n - 1 } }
+$$
+
+-   $s$ = sample standard deviation
+
+## Standard deviation
+
+```{r}
+library(kableExtra)
+
+students |>
+  summarise(
+    Variable = "Overall course mark",
+    Variance = round(
+      sum((Overall_mark - mean(Overall_mark))^2) /
+        (length(Overall_mark) - 1), 2
+    ),
+    SD = round(
+      sqrt(
+        sum((Overall_mark - mean(Overall_mark))^2) /
+          (length(Overall_mark) - 1)
+      ), 2
+    )
+  ) |>
+  kable(col.names = c("Variable", "Variance", "Standard Deviation")) |>
+  kable_classic(full_width = FALSE, html_font = "Cambria") |>
+  kable_styling(font_size = 18)
+
+
+```
+
+#### Short R code
+
+```{r}
+sd(students$Overall_mark)
+```
+
+## Summary: Measures of Variation {.smaller}
+
+*So far, we have learned how to describe how much scores vary around the mean.*
+
+<br>
+
+### 1. Deviations
+
+-   A **deviation** is how far each value is from the mean: $$
+    (x_i - \bar{x})
+    $$
+
+-   Positive and negative deviations **cancel out**, so: $$
+     \sum(x_i - \bar{x}) = 0 
+    $$ <br>
+
+### 2. Squared deviations (fixing the sign problem)
+
+-   To stop the cancellation, we **square** each deviation: $$
+    (x_i - \bar{x})^2
+    $$
+
+## Summary: Measures of Variation {.smaller}
+
+### 3. Variance
+
+-   Variance is the **average squared deviation** from the mean: $$
+    s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1} 
+    $$
+
+-   It is measured in **squared units**, so it is not on the same scale as the original data.
+
+## Summary: Measures of Variation {.smaller}
+
+### 4. Standard deviation (SD)
+
+-   The **standard deviation** is the **square root of the variance**: $$
+    s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}
+    $$
+
+-   This brings us back to the **same units** as the original data.
+
+<br>
+
+> Interpreting the standard deviation
+
+-   **Small** (s): scores are **close to the mean** (low variation).
+
+-   **Large** (s): scores are **spread out** (high variation).
+
+-   In words: \> The standard deviation tells us, *on average, how far the scores are from the mean*.
+
+## **Next: Population vs. Sample Statistics**
+
+Before we calculate variation in real data, we need to know **which formulas to use**:
+
+| Population formulas | Sample formulas |
+|------------------------------------|------------------------------------|
+| we measure variation for an entire population, we use one set of formulas. | When we only have a *sample* (which is almost always the case in research) we use slightly different formulas to avoid underestimating variability. |
+
+## Population vs. Sample statistics {.smaller}
+
+::::: columns
+::: column
+#### **Population Variance**
+
+$$
+\sigma^2 \;=\; \frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}
+$$
+
+#### **Population SD**
+
+$$
+\sigma \;=\; 
+\sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}}
+$$
+:::
+
+::: column
+#### **Sample Variance**
+
+$$
+s^2 \;=\; \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}
+$$
+
+#### **Sample SD**
+
+$$
+s \;=\; 
+\sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}
+$$
+:::
+:::::
+
+#### Notes
+
+-   $\mu$ = population mean; $\bar{x}$ = sample mean\
+-   $\sigma^2$ = population variance; $s^2$ = sample variance\
+-   $\sigma$ = population standard deviation; $s$ = sample standard deviation\
+-   $N$ = population size; $n$ = sample size\
+-   *R defaults to sample statistics.*
+
+## Which measure should we use?
+
+```{r}
+library(knitr)
+library(kableExtra)
+
+# Data frame
+df <- data.frame(
+  `Variable Type` = c("Categorical (Nominal)", 
+                      "Categorical (Ordered)", 
+                      "Continuous", 
+                      "Count"),
+  `Central Tendency` = c("Mode", 
+                         "Mode / Median", 
+                         "Mean / Median", 
+                         "Mode / Mean"),
+  Dispersion = c("Frequency table",
+                 "Range / IQR",
+                 "Variance & Standard Deviation",
+                 "Range (Variance & SD)")
+)
+
+# Create table with shading
+kable(df, align = "c") |>
+  kable_classic(full_width = FALSE, html_font = "Cambria") |>
+  row_spec(1, background = "#E6EBF0") |>  # light grey
+  row_spec(3, background = "#E6EBF0")     # shade selected rows
+
+```
+
+Depends on the **level of measurement**.
+
+## A few extra bits?
+
+So far, we have described **where** our scores sit (centre) and **how much they vary** (spread).
+
+Now we are going to add one last idea:\
+how to talk about the **shape** of a distribution.
+
+-   You may come across the mathematical language of **moments**.
+
+-   Moments describe different aspects of the shape of a set of points:
+
+    -   1st moment: **Mean** (location)
+    -   2nd moment: **Variance** (overall spread)
+    -   3rd moment: **Skew** (asymmetry)
+    -   4th moment: **Kurtosis** (how “peaked” / how heavy the tails are)
+
+## Skew
+
+```{r}
+set.seed(42)
+dat_skew <- tibble(
+Data = rgamma(500, shape = 2, rate = 1)
+)
+
+ggplot(dat_skew, aes(x = Data)) +
+geom_histogram(
+bins  = 25,
+colour = "white",
+fill   = "grey80"
+)
+
+```
+
+## Skew
+
+We will start with **skew**, which tells us whether a distribution leans left or right.
+
+```{r}
+library(ggplot2) 
+library(dplyr)
+
+set.seed(123)
+
+n <- 2000
+
+# Positively skewed: long right tail
+
+pos_skew <- data.frame( value = rbeta(n, shape1 = 2, shape2 = 5), Skew = "Positive" )
+
+# Approximately symmetric
+
+no_skew <- data.frame( value = rnorm(n, mean = 0.5, sd = 0.12), Skew = "None" )
+
+# Negatively skewed: long left tail
+
+neg_skew <- data.frame( value = 1 - rbeta(n, shape1 = 2, shape2 = 5), Skew = "Negative" )
+
+skew_dat <- bind_rows(neg_skew, no_skew, pos_skew)
+
+ggplot(skew_dat, aes(x = value, fill = Skew, colour = Skew)) + 
+  geom_density(alpha = 0.25, adjust = 1.2) + 
+  scale_fill_manual(values = c("Negative" = "#F8766D", "None" = "#00BA38", "Positive" = "#619CFF")) +
+  scale_colour_manual(values = c("Negative" = "#F8766D", "None" = "#00BA38", "Positive" = "#619CFF")) +
+  labs(x = "Value", y = "Density") + theme_minimal(base_size = 16) + theme(legend.position = "right")
+
+```
+
+-   Skew is a measure of the **asymmetry** of a distribution.
+
+-   Positive skew: long tail on the **right**.
+
+-   Negative skew: long tail on the **left**.
+
+## Kurtosis
+
+Now for **kurtosis**, which tells us how *peaked* or *flat* a distribution is, and how heavy the tails are.
+
+```{r}
+set.seed(456)
+
+n <- 2000
+
+# Leptokurtic: very peaked, heavy tails
+
+lepto <- data.frame( value = rnorm(n, mean = 0, sd = 0.4), Kurtosis = "Leptokurtic" )
+
+# Mesokurtic: "normal" reference shape
+
+meso <- data.frame( value = rnorm(n, mean = 0, sd = 0.9), Kurtosis = "Mesokurtic" )
+
+# Platykurtic: flat, light tails
+
+platy <- data.frame( value = rnorm(n, mean = 0, sd = 1.6), Kurtosis = "Platykurtic" )
+
+kurt_dat <- bind_rows(lepto, meso, platy)
+
+ggplot(kurt_dat, aes(x = value, fill = Kurtosis, colour = Kurtosis)) + 
+  geom_density(alpha = 0.25, adjust = 1.2) + 
+  scale_fill_manual(values = c("Leptokurtic" = "#F8766D", "Mesokurtic" = "#00BA38", "Platykurtic" = "#619CFF")) + 
+  scale_colour_manual(values = c("Leptokurtic" = "#F8766D", "Mesokurtic" = "#00BA38", "Platykurtic" = "#619CFF")) + 
+  labs(x = "Value", y = "Density") + theme_minimal(base_size = 16) + theme(legend.position = "right")
+```
+
+-   **Kurtosis** is a measure of the **flatness of the peak** and the **fatness of the tails**.
+
+-   Leptokurtic: tall, skinny peak; heavy tails.
+
+-   Platykurtic: flatter peak; light tails.
+
+## Do they matter?
+
+Even when two data sets have **similar means and standard deviations**,\
+skew and kurtosis can change the *shape* of the distribution.
+
+::::: columns
+::: column
+```{r}
+library(ggplot2)
+
+set.seed(789)
+
+# Simulate a positively skewed distribution
+x <- rlnorm(2000, meanlog = log(6), sdlog = 0.3)
+
+mean_x   <- mean(x)
+median_x <- median(x)
+
+# Rough mode estimate from density peak
+dens   <- density(x)
+mode_x <- dens$x[which.max(dens$y)]
+
+skew_df <- data.frame(x = x)
+
+ggplot(skew_df, aes(x)) +
+  geom_histogram(binwidth = 0.25, 
+                 fill = "grey80",        # Light bars
+                 colour = "grey30") +    # Slight border for contrast
+  geom_vline(xintercept = mean_x,   colour = "red",  size = 1.1) +
+  geom_vline(xintercept = median_x, colour = "blue", size = 1.1) +
+  geom_vline(xintercept = mode_x,   colour = "green", size = 1.1) +
+  labs(x = "Data", y = "Count") +
+  theme_minimal(base_size = 16) +
+  theme(
+    panel.background = element_rect(fill = "grey95", colour = NA),
+    plot.background  = element_rect(fill = "white",  colour = NA),
+    panel.grid.major = element_line(colour = "grey85"),
+    panel.grid.minor = element_line(colour = "grey90")
+  )
+
+```
+:::
+
+::: column
+-   **Mean (red)** ≈ 6.3
+
+-   **Median (blue)** ≈ 5.9
+
+-   **Mode (green)** ≈ 5.1
+
+#### What this shows
+
+-   The **mode** is the *peak* of the distribution.
+
+-   The **median** is slightly to the right of the mode.
+
+-   The **mean** is the furthest right because it is **pulled by the long tail**.
+:::
+:::::
+
+## Summary of today
+
+-   For **continuous variables** we:
+    -   visualise the distribution with a **histogram**
+    -   summarise the centre with the **mean** (or median)
+    -   summarise the spread with the **variance** and **standard deviation**
+-   We can describe the **shape** of the distribution with:
+    -   **Skew** – asymmetry (left-leaning or right-leaning)
+    -   **Kurtosis** – how peaked it is and how heavy the tails are
+
+Together, these tools tell us **where** the data sit,\
+**how much** they vary, and **what shape** the distribution has.
+
+# This Week
+
+-   Attend your lab and complete lab tasks collaboratively\
+-   Office hours for 1-to-1 questions\

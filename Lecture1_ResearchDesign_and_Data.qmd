@@ -1,0 +1,354 @@
+---
+title: "Lecture 01 – Research Design & Data"
+subtitle: "Stats & Data Analysis Block<br> MSDA – IFP Programme"
+author: "Javiera Alfaro Chat"
+format:
+  revealjs:
+    theme: [default, edtheme.scss]
+    include-after-body: [autoscale-tables.html, menu-projection-toggle.html]
+    embed-resources: true
+    fig-align: center
+    fig-format: png
+    slide-number: true
+    slide-number-format: "c / t "   # current / total
+    progress: false
+    smaller: true
+    menu: true
+    footer: |
+      <div class="custom-footer">MSDA – IFP Programme</div>
+    markdown:
+      extensions: +fenced_divs +attr_span
+    allow-html: true
+    logo: images/white_logo.png
+---
+
+# Course Overview
+
+-   Research design and data\
+-   Describing categorical data\
+-   Describing continuous data\
+-   Describing relationships\
+-   Functions\
+-   Hypothesis testing and inference
+
+## Week’s Learning Objectives
+
+1.  Understand the link between **study design** and **data**.\
+2.  Define and distinguish between **levels of measurement**.\
+3.  Identify and describe **data types** with applied examples.
+
+## Topics for Today
+
+-   Broad aim of measurement\
+-   Measurement, design, and data\
+-   Data in R
+
+## Concepts in Measurement
+
+Measurement links research design to the kind of data collected.\
+Understanding how variables are measured determines the type of analysis you can use.
+
+![](images/concept_measurement.png){width="66%"}
+
+## Data Types and Levels
+
+### **Categorical**
+
+-   Nominal
+
+-   Ordinal
+
+-   Binary (special case)
+
+## Categorical Data: Example
+
+-   Variables with a discrete number of response options.
+
+-   Often coded as integers.
+
+-   Binary data is a special case with only two possible values.
+
+::: autoscale-table
+| ID   | Gender     | Stress_level | Satisfaction_Likert_item | Exercise |
+|:-----|:-----------|:-------------|:-------------------------|:---------|
+| S001 | Female     | Moderate     | Satisfied                | Yes      |
+| S002 | Male       | High         | Dissatisfied             | No       |
+| S003 | Female     | Low          | Very Satisfied           | Yes      |
+| S004 | Male       | Moderate     | Satisfied                | No       |
+| S005 | Non-binary | High         | Dissatisfied             | No       |
+:::
+
+## Data Types and Levels
+
+::::: columns
+::: column
+### **Categorical**
+
+-   Nominal
+
+-   Ordinal
+
+-   Binary (special case)
+:::
+
+::: column
+### **Numeric**
+
+-   Interval or Ratio
+
+-   Continuous
+
+-   Discrete (Count)
+:::
+:::::
+
+## Numeric Data Example
+
+Variables that can take any real-number value within a given range.
+
+::: autoscale-table
+| ID   | Study_hours | Sleep_hours | Coffee_per_day | Social_media_hr | Overall_mark |
+|:-----------|-----------:|-----------:|-----------:|-----------:|-----------:|
+| S001 |         6.8 |         7.4 |              1 |             2.4 |           68 |
+| S002 |         3.1 |         5.8 |              3 |             4.7 |           55 |
+| S003 |         8.2 |         7.6 |              1 |             2.0 |           78 |
+| S004 |         5.5 |         6.7 |              2 |             3.0 |           65 |
+| S005 |         4.0 |         5.9 |              2 |             4.1 |           58 |
+:::
+
+## Data Types and Levels
+
+::::: columns
+::: column
+### **Categorical**
+
+-   Nominal
+
+-   Ordinal
+
+-   Binary (special case)
+
+### Count
+
+Variables that can only take non-negative integer values (0, 1, 2, 3 …).\
+Examples: number of correct responses, number of siblings.
+:::
+
+::: column
+### Numeric
+
+-   Interval or Ratio
+
+-   Continuous
+
+-   Discrete (Count)
+:::
+:::::
+
+## Levels of Measurement
+
+1.  **Nominal** – categories without order\
+2.  **Ordinal** – ordered categories\
+3.  **Interval** – ordered, equal spacing, no true zero\
+4.  **Ratio** – ordered, equal spacing, true zero
+
+With each level, numeric values gain meaning and allow more analytical options.
+
+## 1. Nominal Data
+
+Categorical variables where numeric or text labels have **no meaningful order**.\
+Examples include demographic variables or yes/no responses.
+
+::: autoscale-table
+| ID   | Gender     | Exercise |
+|:-----|:-----------|:---------|
+| S001 | Female     | Yes      |
+| S002 | Male       | No       |
+| S003 | Female     | Yes      |
+| S004 | Male       | No       |
+| S005 | Non-binary | No       |
+:::
+
+## 2. Ordinal Data
+
+Categorical variables with a **meaningful rank order**,\
+but where the difference between categories is **not numerically equal**.
+
+::: autoscale-table
+| ID   | Stress_level | Satisfaction_Likert_item | Satisfaction_Likert_value |
+|:-----|:-------------|:-------------------------|--------------------------:|
+| S001 | Moderate     | Satisfied                |                         4 |
+| S002 | High         | Dissatisfied             |                         2 |
+| S003 | Low          | Very Satisfied           |                         5 |
+| S004 | Moderate     | Satisfied                |                         4 |
+| S005 | High         | Dissatisfied             |                         2 |
+:::
+
+## 2. Ordinal Data
+
+Categorical variables with a **meaningful rank order**,\
+but where the difference between categories is **not numerically equal**.
+
+::: autoscale-table
+| ID   | Stress_level | Satisfaction_Likert_item | Satisfaction_Likert_value |
+|:-----|:-------------|:-------------------------|:--------------------------|
+| S001 | Moderate     | Satisfied                | 4                         |
+| S002 | High         | Dissatisfied             | 2                         |
+| S003 | Low          | Very Satisfied           | 5                         |
+| S004 | Moderate     | Satisfied                | 4                         |
+| S005 | High         | Dissatisfied             | 2                         |
+:::
+
+<br>
+
+::: note
+-   The categories follow a logical order (e.g., Low → Moderate → High; Very Dissatisfied → Very Satisfied).
+
+-   The numeric codes (1–5) represent ranking, but not equal intervals between points — e.g., the “distance” between Satisfied and Very Satisfied is not necessarily the same as between Neutral and Satisfied.
+:::
+
+## 3. Interval Data
+
+:::::: columns
+::: column
+-   Numerical values have **meaning**
+-   **No true zero point**
+-   Differences between values are **meaningful**
+:::
+
+:::: column
+::: example-box
+Example: **IQ** or other **standardised test scores**
+
+IQ is a good example of **interval data** — the difference between 100 and 110 is the same as between 110 and 120, but there is no true zero point that indicates “no intelligence”.
+:::
+::::
+::::::
+
+::: autoscale-table
+| ID   | Gender     | IQ  |
+|:-----|:-----------|:----|
+| S001 | Female     | 102 |
+| S004 | Male       | 110 |
+| S008 | Female     | 120 |
+| S015 | Female     | 115 |
+| S018 | Male       | 90  |
+| S030 | Non-binary | 96  |
+:::
+
+::: small-note
+> **Note:** Interval data are often used for psychological or educational scores, where differences are meaningful but ratios (e.g. “twice as intelligent”) are not.
+:::
+
+## 4. Ratio Data {.tight}
+
+:::::: columns
+::: column
+-   Numerical values have **meaning**
+-   Contain a **true zero point**
+-   Possible to **multiply and divide**
+:::
+
+:::: column
+::: example-box
+Examples from this dataset:
+
+**Study_hours** — 0 means no study time\
+**Sleep_hours** — 0 means no sleep\
+**Overall_mark** — 0 indicates no marks earned
+:::
+::::
+::::::
+
+::: autoscale-table
+| ID   | Study_hours | Sleep_hours | Overall_mark |
+|:-----|:------------|:------------|:-------------|
+| S001 | 6.8         | 7.4         | 68           |
+| S007 | 2.7         | 5.0         | 49           |
+| S015 | 8.5         | 7.9         | 79           |
+| S021 | 8.1         | 7.6         | 77           |
+| S027 | 9.1         | 8.3         | 82           |
+:::
+
+::: small-note
+> **Note:** Ratio data have all the properties of interval data but include a meaningful zero, allowing for statements such as “studied twice as many hours”.
+:::
+
+# Levels of Measurement
+
+![](images/levels_of_measurement.png){width="585"}
+
+# Data Types and R
+
+::: autoscale-table
+| **R Data Type** | **Example (from dataset)** | **Level of Measurement** | **Data Type** |
+|:-----------------|:------------------|:-----------------|:-----------------|
+| Character | ID | Nominal | (Categorical) |
+| Numeric | Overall_mark or IQ | Interval or Ratio | Continuous |
+| Factor | Gender or Stress_level | Nominal | Categorical |
+| Ordered factor | Satisfaction_Likert_item | Ordinal | Categorical |
+:::
+
+## Data and data sets
+
+![](images/concept_measurement.png){width="617"}
+
+## Data sets
+
+![](images/data_set.png){width="483"}
+
+## Tidy Data
+
+![](images/clipboard-1407511003.png){width="528"}
+
+1.  Each **variable** has its own **column**.\
+2.  Each **observation** has its own **row**.\
+3.  Each **value** has its own **cell**.
+
+Each value belongs simultaneously to a variable and an observation.
+
+# Working with Data in R
+
+Typical workflow:
+
+-   Import datasets into R (`read.csv()` or `read_tsv()`)\
+-   Check variable types (`str()` or `glimpse()`)\
+-   Select columns and filter rows (`dplyr`)\
+-   Recode or create variables\
+-   Merge data sets\
+-   Summarise and visualise
+
+# Summary of Today
+
+-   Connection between **research design** and **data**\
+-   Key **types and levels** of data\
+-   Representation of data types in **R**\
+-   Introduction to **tidy data** principles
+
+
+# What Happens Next After Today
+
+Today we introduced:
+
+- how constructs become measurable variables  
+- types of variables and levels of measurement  
+- tidy data and how datasets are structured  
+- how R represents and stores data  
+
+After this lecture:
+
+- use the **Week 08 online notes** to review today’s concepts  
+- complete the **variable classification exercise**  
+- identify **independent** and **dependent** variables (IVs and DVs) in the dataset you will use  
+
+In next week’s session (Week 09), we will begin:
+
+- describing **categorical data**  
+- working with **frequencies**, **percentages**, and **bar plots**  
+- using R to summarise **categorical variables**  
+
+# This Week
+
+-   Attend Lecture\
+-   Attend your lab and complete lab tasks collaboratively\
+-   Office hours for 1-to-1 questions\
