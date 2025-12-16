@@ -1,5 +1,5 @@
 project:
-  output-dir: docs   # this is where the HTML will go
+  output-dir: docs   # this is where the HTML + PDFs will go
 
 format:
   revealjs:

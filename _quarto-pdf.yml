@@ -1,0 +1,7 @@
+project:
+  output-dir: docs/pdfs
+
+format:
+  pdf:
+    toc: false
+    geometry: margin=1in

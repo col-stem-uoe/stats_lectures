@@ -1,15 +1,11 @@
 ---
 title: "Lecture 3 – Describing Continuous Data "
-subtitle: "Stats & Data Analysis Block<br> MSDA – IFP Programme"
+subtitle: "MSDA – IFP Programme"
 author: "Javiera Alfaro Chat"
 format:
   revealjs:
-    theme: [default, edtheme.scss]
-    smaller: true
-    margin: 0.03        # less outer margin, more space for content
-    maxScale: 1.5
-    minScale: 0.3
     code-line-numbers: true
+    theme: [default, edtheme.scss]
     include-after-body: [autoscale-tables.html, menu-projection-toggle.html]
     embed-resources: true
     fig-align: center
@@ -17,6 +13,7 @@ format:
     slide-number: true
     slide-number-format: "c / t "   # current / total
     progress: false
+    smaller: true
     menu: true
     footer: |
       <div class="custom-footer">MSDA – IFP Programme</div>
@@ -728,7 +725,7 @@ sd(students$Overall_mark)
 Before we calculate variation in real data, we need to know **which formulas to use**:
 
 | Population formulas | Sample formulas |
-|------------------------------------|------------------------------------|
+|----|----|
 | we measure variation for an entire population, we use one set of formulas. | When we only have a *sample* (which is almost always the case in research) we use slightly different formulas to avoid underestimating variability. |
 
 ## Population vs. Sample statistics {.smaller}
